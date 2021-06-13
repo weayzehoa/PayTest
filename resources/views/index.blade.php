@@ -14,20 +14,19 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-4">
                         <form action="{{ route('order.store') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary btn-block btn-submit">藍新測試</button>
+                            <button type="submit" class="btn btn-primary btn-block">藍新測試(Form 方式)</button>
                         </form>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-primary btn-block btn-submit">藍新信用卡</button>
+                        <button type="button" class="btn btn-primary btn-block btn-submit" value="藍新信用卡">藍新信用卡(Ajax)</button>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-danger btn-block btn-submit" value="藍新ATM轉帳">藍新ATM轉帳</button>
-                    </div>
-                    <div class="col-4">
-                        <button type="button" class="btn btn-success btn-block btn-submit" value="藍新超商付款">藍新超商付款</button>
+                        <form action="{{ url('api/pay') }}" method="GET">
+                            <button type="submit" class="btn btn-danger btn-block">藍新信用卡(重新導向)</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -47,7 +46,7 @@
         let token = '{{ csrf_token() }}';
         $.ajax({
             type: "post",
-            url: 'api/order',
+            url: 'api/pay',
             data: { useId: 84533, pay_method: method , _token: token },
             success: function(data) {
                 console.log(data);

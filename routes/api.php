@@ -17,7 +17,7 @@ Route::get('/', function () {
     return response()->json('test',200);
 });
 
-use App\Http\Controllers\API\OrderController;
-Route::post('newebpay/return', [OrderController::class, 'return']);
-Route::post('newebpay/notify', [OrderController::class, 'notify']);
-Route::resource('order', OrderController::class);
+use App\Http\Controllers\API\PayController;
+Route::post('/pay/newebpay/return', [PayController::class, 'newebpayReturn']);
+Route::post('/pay/newebpay/notify', [PayController::class, 'newebpayNotify']);
+Route::resource('pay', PayController::class);

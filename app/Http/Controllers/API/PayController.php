@@ -5,8 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use NewebPay;
+use View;
 
-class OrderController extends Controller
+class PayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +16,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return 'test';
+        return redirect('pay');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         return NewebPay::payment(
@@ -34,12 +30,13 @@ class OrderController extends Controller
         )->submit();
     }
 
-    public function return(Request $request)
+    public function newebpayReturn(Request $request)
     {
         $return = NewebPay::decode($request->input('TradeInfo'));
+        return redirect('/');
     }
 
-    public function notify(Request $request)
+    public function newebpayNotify(Request $request)
     {
         $notify = $request;
     }

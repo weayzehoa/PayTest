@@ -167,8 +167,6 @@ return [
          */
         //Request 紀錄器
         LittleBookBoy\Request\Recorder\RequestRecorderServiceProvider::class,
-        //NewebPay - 藍新金流套件
-        MingJSHK\NewebPay\NewebPayServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,9 +229,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        //NewebPay - 藍新金流套件
-        'NewebPay' => MingJSHK\NewebPay\Facades\NewebPay::class,
     ],
 
 ];
