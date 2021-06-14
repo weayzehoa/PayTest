@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\OrderController;
 Route::resource('/', IndexController::class);
-Route::get('pay', [IndexController::class, 'pay']);
-Route::resource('/order', OrderController::class);
+Route::get('pay', [IndexController::class, 'pay'])->name('pay');

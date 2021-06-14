@@ -12,47 +12,31 @@
 <body>
     <div class="login-box">
         <div class="card">
-            <div class="card-body login-card-body">
-                <div class="row">
-                    <div class="col-4">
-                        <form action="{{ route('order.store') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-primary btn-block">藍新測試(Form 方式)</button>
-                        </form>
+            <div class="card-body">
+                <h3 class="text-center">金流測試</h3>
+                <i class="fas fa-info text-primary"></i> 智付通(藍新)金流測試，信用卡號僅接受 4000-2211-1111-1111 ， 商店將於 2021/7/12 到期失效。<br>
+                <div class="row mt-2 text-center">
+                    <div class="mb-2 col-3">
+                        <a href="{{ route('pay.index', ['pay_method' => '智付通信用卡']) }}" class="btn btn-primary btn-block">智付通信用卡</a>
                     </div>
-                    <div class="col-4">
-                        <button type="button" class="btn btn-primary btn-block btn-submit" value="藍新信用卡">藍新信用卡(Ajax)</button>
+                    <div class="mb-2 col-3">
+                        <a href="{{ route('pay.index', ['pay_method' => '智付通ATM']) }}" class="btn btn-primary btn-block">智付通ATM轉帳</a>
                     </div>
-                    <div class="col-4">
-                        <form action="{{ url('api/pay') }}" method="GET">
-                            <button type="submit" class="btn btn-danger btn-block">藍新信用卡(重新導向)</button>
-                        </form>
+                    <div class="mb-2 col-3">
+                        <a href="{{ route('pay.index', ['pay_method' => '智付通CVS']) }}" class="btn btn-primary btn-block">智付通超商代碼繳款</a>
+                    </div>
+                    <div class="mb-2 col-3">
+                        <a href="{{ route('pay.index', ['pay_method' => '智付通銀聯卡']) }}" class="btn btn-primary btn-block">智付通銀聯卡</a>
+                    </div>
+                    <div class="mb-2 col-3">
+                        <a href="{{ route('pay.index', ['pay_method' => '付款方式']) }}" class="btn btn-danger btn-block">付款方式錯誤</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="newebpay">
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<script>
-    $('.btn-submit').click(function(){
-        let method = $(this).val();
-        let token = '{{ csrf_token() }}';
-        $.ajax({
-            type: "post",
-            url: 'api/pay',
-            data: { useId: 84533, pay_method: method , _token: token },
-            success: function(data) {
-                console.log(data);
-                $('#newebpay').html(data);
-                // alert(data);
-            }
-        });
-    });
-</script>

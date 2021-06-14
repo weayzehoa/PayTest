@@ -1346,16 +1346,16 @@
         },
         {
             "name": "littlebookboy/laravel-request-recorder",
-            "version": "v1.3.1",
+            "version": "v1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/littlebookboy/laravel-request-recorder.git",
-                "reference": "02872cdad8559f8ecf284bb19c6ba7cc9634c55d"
+                "reference": "97ce5c49e87bc3fce965e72448c3397782bd8d2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/littlebookboy/laravel-request-recorder/zipball/02872cdad8559f8ecf284bb19c6ba7cc9634c55d",
-                "reference": "02872cdad8559f8ecf284bb19c6ba7cc9634c55d",
+                "url": "https://api.github.com/repos/littlebookboy/laravel-request-recorder/zipball/97ce5c49e87bc3fce965e72448c3397782bd8d2d",
+                "reference": "97ce5c49e87bc3fce965e72448c3397782bd8d2d",
                 "shasum": ""
             },
             "type": "library",
@@ -1386,9 +1386,9 @@
             "homepage": "https://github.com/littlebookboy/laravel-request-recorder",
             "support": {
                 "issues": "https://github.com/littlebookboy/laravel-request-recorder/issues",
-                "source": "https://github.com/littlebookboy/laravel-request-recorder/tree/master"
+                "source": "https://github.com/littlebookboy/laravel-request-recorder/tree/v1.4"
             },
-            "time": "2018-01-16T02:14:31+00:00"
+            "time": "2021-06-14T06:17:23+00:00"
         },
         {
             "name": "mingjshk/laravel-newebpay",
