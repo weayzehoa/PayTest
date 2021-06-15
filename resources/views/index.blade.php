@@ -31,6 +31,12 @@
                     <div class="mb-2 col-3">
                         <a href="{{ route('pay.index', ['pay_method' => '付款方式']) }}" class="btn btn-danger btn-block">付款方式錯誤</a>
                     </div>
+                    <div class="mb-2 col-3">
+                        <form action="{{ route('pay.cancel') }}" method="GET">
+                            <input class="form-control" type="text" name="order_number" placeholder="輸入訂單號碼">
+                            <button type="submit" class="btn btn-danger">取消智付通信用卡交易</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

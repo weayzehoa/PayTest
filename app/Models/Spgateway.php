@@ -12,6 +12,7 @@ class Spgateway extends Model
 
     protected $fillable = [
         'order_number' ,
+        'amount',
         'pay_status',
         'PaymentType',
         'memo',
