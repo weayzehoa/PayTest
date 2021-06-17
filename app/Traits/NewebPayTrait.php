@@ -81,13 +81,16 @@ trait NewebPayTrait
     {
         if(!empty($type) && $type =='update'){
             $spgateway = SpgatewayDB::where('order_number',$orderNumber)->first();
-            $spgateway = $spgateway->update([
-                'pay_status' => $payStatus,
-                'get_json' => $getJson,
-                'result_json' => $resultJson,
-                'memo' => $memo,
-            ]);
-            return $spgateway;
+            $spgateway = SpgatewayDB::where('order_number',$orderNumber)->first();
+            if(!empty($spgateway)){
+                $spgateway = $spgateway->update([
+                    'pay_status' => $payStatus,
+                    'get_json' => $getJson,
+                    'result_json' => $resultJson,
+                    'memo' => $memo,
+                ]);
+                return $spgateway;
+            }
         }else{
             $data = ['order_number' => $this->orderNumber, 'amount' => $this->amount, 'pay_status' => $this->payStatus, 'PaymentType' => $this->paymentType, 'memo' => $this->memo, 'post_json' => !empty($this->postJson) ? $this->postJson : null, 'get_json' => !empty($this->getJson) ? $this->getJson : null, 'result_json' => !empty($this->resultJson) ? $this->resultJson : null];
             $log = SpgatewayDB::create($data);
